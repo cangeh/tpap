@@ -1,24 +1,24 @@
 /**
- * @fileOverview Kchars×é¼şµÄ°²È«ÊÊÅäÆ÷
+ * @fileOverview Kcharsç»„ä»¶çš„å®‰å…¨é€‚é…å™¨
  */
 KISSY.add(function (S, LineChart, BarChart, PieChart) {
     var DOM = S.DOM,
         Event = S.Event;
 
     /**
-     * Ìá¹©Ò»¸öinit·½·¨£¬Ãû×ÖÈÎÈ¡£¬×îºóÄ£¿éreturn¼´¿É¡£ ÓÃÀ´³õÊ¼»¯ÊÊÅäÆ÷
-     * ³õÊ¼»¯·½·¨ĞèÒª·µ»ØÒ»¸öº¯Êı£¬ÓÃÀ´ÎªÃ¿¸öÉ³Ïä»·¾³Ìá¹©ÊÊÅä¶ÔÏó¡£
-     * ps: Ò³ÃæÖĞ¿ÉÄÜ»áÓĞ¶à¸ö°²È«É³Ïä»·¾³¡£init·½·¨ÄÚÖ´ĞĞµÄ¿ÉÒÔÀí½âÎªËùÓĞÉ³Ïä¹²ÏíµÄÒ»Ğ©ÄÚÈİ¶ÔÏó£¬Ö÷ÒªÌá¹©×îÔ­Ê¼µÄ°²È«ÊÊÅä¶ÔÏóºÍ·½·¨¡£(Ö´ĞĞÒ»´Î,ËùÓĞÉ³Ïä¹²Ïí)
-     *     init·µ»ØµÄº¯Êı¿ÉÒÔÀí½âÊÇÎªÃ¿¸öÉ³ÏäÌá¹©µÄ°²È«ÊÊÅä¶ÔÏó¡£(Ö´ĞĞ¶à´Î£¬Ã¿¸öÉ³Ïä¶Ô¶ÔÏóµÄ²Ù×÷²»Ó°ÏìÆäËûÉ³Ïä)
-     *     ×Ü½á£º¿ÉÒÔÀí½âÎªKISSYÔÚframeGroup³õÊ¼»¯µÄÊ±ºòÊÇÒ»¸ö¶ÔÏó£¬È»ºó»ácopy¶à·İ£¬·Ö±ğ·Åµ½²»Í¬µÄÉ³Ïä»·¾³ÖĞÈ¥Ö´ĞĞ¡£Ã¿¸öcopyÏà»¥Ö®¼ä²»Ó°Ïì
-     * @param frameGroup Ò³ÃæÖĞµÄÉ³Ïä»·¾³£¬frame¼´ÎªÉ³Ïä£¬frameGroupÎªÉ³Ïä×é¡£É³ÏäµÄ¹«¹²»·¾³
-     * @returns {Function} ¹¤³§»ñÈ¡Êµ¼ÊµÄÊÊÅä¶ÔÏó
+     * æä¾›ä¸€ä¸ªinitæ–¹æ³•ï¼Œåå­—ä»»å–ï¼Œæœ€åæ¨¡å—returnå³å¯ã€‚ ç”¨æ¥åˆå§‹åŒ–é€‚é…å™¨
+     * åˆå§‹åŒ–æ–¹æ³•éœ€è¦è¿”å›ä¸€ä¸ªå‡½æ•°ï¼Œç”¨æ¥ä¸ºæ¯ä¸ªæ²™ç®±ç¯å¢ƒæä¾›é€‚é…å¯¹è±¡ã€‚
+     * ps: é¡µé¢ä¸­å¯èƒ½ä¼šæœ‰å¤šä¸ªå®‰å…¨æ²™ç®±ç¯å¢ƒã€‚initæ–¹æ³•å†…æ‰§è¡Œçš„å¯ä»¥ç†è§£ä¸ºæ‰€æœ‰æ²™ç®±å…±äº«çš„ä¸€äº›å†…å®¹å¯¹è±¡ï¼Œä¸»è¦æä¾›æœ€åŸå§‹çš„å®‰å…¨é€‚é…å¯¹è±¡å’Œæ–¹æ³•ã€‚(æ‰§è¡Œä¸€æ¬¡,æ‰€æœ‰æ²™ç®±å…±äº«)
+     *     initè¿”å›çš„å‡½æ•°å¯ä»¥ç†è§£æ˜¯ä¸ºæ¯ä¸ªæ²™ç®±æä¾›çš„å®‰å…¨é€‚é…å¯¹è±¡ã€‚(æ‰§è¡Œå¤šæ¬¡ï¼Œæ¯ä¸ªæ²™ç®±å¯¹å¯¹è±¡çš„æ“ä½œä¸å½±å“å…¶ä»–æ²™ç®±)
+     *     æ€»ç»“ï¼šå¯ä»¥ç†è§£ä¸ºKISSYåœ¨frameGroupåˆå§‹åŒ–çš„æ—¶å€™æ˜¯ä¸€ä¸ªå¯¹è±¡ï¼Œç„¶åä¼šcopyå¤šä»½ï¼Œåˆ†åˆ«æ”¾åˆ°ä¸åŒçš„æ²™ç®±ç¯å¢ƒä¸­å»æ‰§è¡Œã€‚æ¯ä¸ªcopyç›¸äº’ä¹‹é—´ä¸å½±å“
+     * @param frameGroup é¡µé¢ä¸­çš„æ²™ç®±ç¯å¢ƒï¼Œframeå³ä¸ºæ²™ç®±ï¼ŒframeGroupä¸ºæ²™ç®±ç»„ã€‚æ²™ç®±çš„å…¬å…±ç¯å¢ƒ
+     * @returns {Function} å·¥å‚è·å–å®é™…çš„é€‚é…å¯¹è±¡
      */
     function init(frameGroup) {
 
         /**
-         * ÒòÎªKISSYµÄ×é¼ş¹¹Ôìº¯ÊıÖ»ÓĞÒ»¸ö£¬ºóÃæ¿ÉÄÜ»á¶Ô¹¹Ôìº¯Êı±¾Éí×öĞŞ¸Ä
-         * ËùÒÔÕâÀï¿ÉÒÔĞ´Ò»¸öSafeConstruector£¬Ïàµ±ÓÚ¼Ì³ĞKISSYµÄ×é¼ş£¬²¢ÇÒÏÔÊ¾µÄÉùÃ÷Òª¿ª·ÅÄÄĞ©api
+         * å› ä¸ºKISSYçš„ç»„ä»¶æ„é€ å‡½æ•°åªæœ‰ä¸€ä¸ªï¼Œåé¢å¯èƒ½ä¼šå¯¹æ„é€ å‡½æ•°æœ¬èº«åšä¿®æ”¹
+         * æ‰€ä»¥è¿™é‡Œå¯ä»¥å†™ä¸€ä¸ªSafeConstruectorï¼Œç›¸å½“äºç»§æ‰¿KISSYçš„ç»„ä»¶ï¼Œå¹¶ä¸”æ˜¾ç¤ºçš„å£°æ˜è¦å¼€æ”¾å“ªäº›api
          */
         //LineChart Adapter
         function SafeLineChart(cfg) {
@@ -29,12 +29,12 @@ KISSY.add(function (S, LineChart, BarChart, PieChart) {
             this.inner.render();
         };
 
-        SafeLineChart.prototype.showLine = function(){
-            this.inner.showLine();
+        SafeLineChart.prototype.showLine = function(lineIndex){
+            this.inner.showLine(lineIndex);
         };
 
-        SafeLineChart.prototype.hideLine = function(){
-            this.inner.hideLine();
+        SafeLineChart.prototype.hideLine = function(lineIndex){
+            this.inner.hideLine(lineIndex);
         };
 
         SafeLineChart.prototype.clear = function(){
@@ -104,14 +104,14 @@ KISSY.add(function (S, LineChart, BarChart, PieChart) {
 
 
         /**
-         * @param context ÉÏÏÂÎÄ
-         * @param context.mod É³ÏäµÄÄ£¿é·¶Î§£¬ËùÓĞ²Ù×÷±ØĞëÏŞ¶¨µ½Ä£¿é·¶Î§Ö®ÄÚÈ¥Ö´ĞĞ
-         * @param context.frame µ¥¸öÄ£¿éµÄÉ³Ïä
-         * @return {Object} Êµ¼ÊµÄ×é¼ş¶ÔÏó
+         * @param context ä¸Šä¸‹æ–‡
+         * @param context.mod æ²™ç®±çš„æ¨¡å—èŒƒå›´ï¼Œæ‰€æœ‰æ“ä½œå¿…é¡»é™å®šåˆ°æ¨¡å—èŒƒå›´ä¹‹å†…å»æ‰§è¡Œ
+         * @param context.frame å•ä¸ªæ¨¡å—çš„æ²™ç®±
+         * @return {Object} å®é™…çš„ç»„ä»¶å¯¹è±¡
          */
         return function (context) {
 
-            //×îÖÕĞèÒª·µ»Ø¸ø
+            //æœ€ç»ˆéœ€è¦è¿”å›ç»™
             return {
                 KCharts: {
                     LineChart: frameGroup.markFunction(function () {
