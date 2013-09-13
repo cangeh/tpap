@@ -1,25 +1,29 @@
 /**
- * @fileOverview jssdk◊Èº˛µƒ∞≤»´  ≈‰∆˜
- * @depends “¿¿µ”⁄“≥√Ê÷–’˝»∑µƒ“˝»Î¡Àjssdkµƒø‚Œƒº˛
+ * @fileOverview jssdkÁªÑ‰ª∂ÁöÑÂÆâÂÖ®ÈÄÇÈÖçÂô®
+ * @depends ‰æùËµñ‰∫éÈ°µÈù¢‰∏≠Ê≠£Á°ÆÁöÑÂºïÂÖ•‰∫ÜjssdkÁöÑÂ∫ìÊñá‰ª∂
  */
 KISSY.add(function (S) {
     var DOM = S.DOM,
         Event = S.Event;
 
     /**
-     * Ã·π©“ª∏ˆinit∑Ω∑®£¨√˚◊÷»Œ»°£¨◊Ó∫Ûƒ£øÈreturnº¥ø…°£ ”√¿¥≥ı ºªØ  ≈‰∆˜
-     * ≥ı ºªØ∑Ω∑®–Ë“™∑µªÿ“ª∏ˆ∫Ø ˝£¨”√¿¥Œ™√ø∏ˆ…≥œ‰ª∑æ≥Ã·π©  ≈‰∂‘œÛ°£
-     * ps: “≥√Ê÷–ø…ƒ‹ª·”–∂‡∏ˆ∞≤»´…≥œ‰ª∑æ≥°£init∑Ω∑®ƒ⁄÷¥––µƒø…“‘¿ÌΩ‚Œ™À˘”–…≥œ‰π≤œÌµƒ“ª–©ƒ⁄»›∂‘œÛ£¨÷˜“™Ã·π©◊Ó‘≠ ºµƒ∞≤»´  ≈‰∂‘œÛ∫Õ∑Ω∑®°£(÷¥––“ª¥Œ,À˘”–…≥œ‰π≤œÌ)
-     *     init∑µªÿµƒ∫Ø ˝ø…“‘¿ÌΩ‚ «Œ™√ø∏ˆ…≥œ‰Ã·π©µƒ∞≤»´  ≈‰∂‘œÛ°£(÷¥––∂‡¥Œ£¨√ø∏ˆ…≥œ‰∂‘∂‘œÛµƒ≤Ÿ◊˜≤ª”∞œÏ∆‰À˚…≥œ‰)
-     *     ◊‹Ω·£∫ø…“‘¿ÌΩ‚Œ™KISSY‘⁄frameGroup≥ı ºªØµƒ ±∫Ú «“ª∏ˆ∂‘œÛ£¨»ª∫Ûª·copy∂‡∑›£¨∑÷±∑≈µΩ≤ªÕ¨µƒ…≥œ‰ª∑æ≥÷–»•÷¥––°£√ø∏ˆcopyœ‡ª•÷Æº‰≤ª”∞œÏ
-     * @param frameGroup “≥√Ê÷–µƒ…≥œ‰ª∑æ≥£¨frameº¥Œ™…≥œ‰£¨frameGroupŒ™…≥œ‰◊È°£…≥œ‰µƒπ´π≤ª∑æ≥
-     * @returns {Function} π§≥ßªÒ»° µº µƒ  ≈‰∂‘œÛ
+     * Êèê‰æõ‰∏Ä‰∏™initÊñπÊ≥ïÔºåÂêçÂ≠ó‰ªªÂèñÔºåÊúÄÂêéÊ®°ÂùóreturnÂç≥ÂèØ„ÄÇ Áî®Êù•ÂàùÂßãÂåñÈÄÇÈÖçÂô®
+     * ÂàùÂßãÂåñÊñπÊ≥ïÈúÄË¶ÅËøîÂõû‰∏Ä‰∏™ÂáΩÊï∞ÔºåÁî®Êù•‰∏∫ÊØè‰∏™Ê≤ôÁÆ±ÁéØÂ¢ÉÊèê‰æõÈÄÇÈÖçÂØπË±°„ÄÇ
+     * ps: È°µÈù¢‰∏≠ÂèØËÉΩ‰ºöÊúâÂ§ö‰∏™ÂÆâÂÖ®Ê≤ôÁÆ±ÁéØÂ¢É„ÄÇinitÊñπÊ≥ïÂÜÖÊâßË°åÁöÑÂèØ‰ª•ÁêÜËß£‰∏∫ÊâÄÊúâÊ≤ôÁÆ±ÂÖ±‰∫´ÁöÑ‰∏Ä‰∫õÂÜÖÂÆπÂØπË±°Ôºå‰∏ªË¶ÅÊèê‰æõÊúÄÂéüÂßãÁöÑÂÆâÂÖ®ÈÄÇÈÖçÂØπË±°ÂíåÊñπÊ≥ï„ÄÇ(ÊâßË°å‰∏ÄÊ¨°,ÊâÄÊúâÊ≤ôÁÆ±ÂÖ±‰∫´)
+     *     initËøîÂõûÁöÑÂáΩÊï∞ÂèØ‰ª•ÁêÜËß£ÊòØ‰∏∫ÊØè‰∏™Ê≤ôÁÆ±Êèê‰æõÁöÑÂÆâÂÖ®ÈÄÇÈÖçÂØπË±°„ÄÇ(ÊâßË°åÂ§öÊ¨°ÔºåÊØè‰∏™Ê≤ôÁÆ±ÂØπÂØπË±°ÁöÑÊìç‰Ωú‰∏çÂΩ±ÂìçÂÖ∂‰ªñÊ≤ôÁÆ±)
+     *     ÊÄªÁªìÔºöÂèØ‰ª•ÁêÜËß£‰∏∫KISSYÂú®frameGroupÂàùÂßãÂåñÁöÑÊó∂ÂÄôÊòØ‰∏Ä‰∏™ÂØπË±°ÔºåÁÑ∂Âêé‰ºöcopyÂ§ö‰ªΩÔºåÂàÜÂà´ÊîæÂà∞‰∏çÂêåÁöÑÊ≤ôÁÆ±ÁéØÂ¢É‰∏≠ÂéªÊâßË°å„ÄÇÊØè‰∏™copyÁõ∏‰∫í‰πãÈó¥‰∏çÂΩ±Âìç
+     * @param frameGroup È°µÈù¢‰∏≠ÁöÑÊ≤ôÁÆ±ÁéØÂ¢ÉÔºåframeÂç≥‰∏∫Ê≤ôÁÆ±ÔºåframeGroup‰∏∫Ê≤ôÁÆ±ÁªÑ„ÄÇÊ≤ôÁÆ±ÁöÑÂÖ¨ÂÖ±ÁéØÂ¢É
+     * @returns {Function} Â∑•ÂéÇËé∑ÂèñÂÆûÈôÖÁöÑÈÄÇÈÖçÂØπË±°
      */
     function init(frameGroup) {
 
         function genWrapper() {
             function wrapper(data) {
-                data = cajaAFTB.untame(data)
+                data = cajaAFTB.untame(data);
+                if(typeof(data)=="function")
+                {
+                   frameGroup.markFunction(data);	
+                }
                 return wrapper.handle.call(this, data);
             }
             return wrapper;
@@ -27,17 +31,17 @@ KISSY.add(function (S) {
 
 
         /**
-         * @param context …œœ¬Œƒ
-         * @param context.mod …≥œ‰µƒƒ£øÈ∑∂Œß£¨À˘”–≤Ÿ◊˜±ÿ–Îœﬁ∂®µΩƒ£øÈ∑∂Œß÷Æƒ⁄»•÷¥––
-         * @param context.frame µ•∏ˆƒ£øÈµƒ…≥œ‰
-         * @return {Object}  µº µƒ◊Èº˛∂‘œÛ
+         * @param context ‰∏ä‰∏ãÊñá
+         * @param context.mod Ê≤ôÁÆ±ÁöÑÊ®°ÂùóËåÉÂõ¥ÔºåÊâÄÊúâÊìç‰ΩúÂøÖÈ°ªÈôêÂÆöÂà∞Ê®°ÂùóËåÉÂõ¥‰πãÂÜÖÂéªÊâßË°å
+         * @param context.frame Âçï‰∏™Ê®°ÂùóÁöÑÊ≤ôÁÆ±
+         * @return {Object} ÂÆûÈôÖÁöÑÁªÑ‰ª∂ÂØπË±°
          */
         return function (context) {
 
-            //◊Ó÷’–Ë“™∑µªÿ∏¯
+            //ÊúÄÁªàÈúÄË¶ÅËøîÂõûÁªô
             return {
                 TOP:frameGroup.tame({
-                    //TOP µƒ api∫Ø ˝£¨µ⁄“ª∏ˆŒ™stringªÚ’ﬂobject£¨µ⁄∂˛∏ˆŒ™coback function£¨µ⁄»˝∏ˆŒ™boolean
+                    //TOP ÁöÑ apiÂáΩÊï∞ÔºåÁ¨¨‰∏Ä‰∏™‰∏∫stringÊàñËÄÖobjectÔºåÁ¨¨‰∫å‰∏™‰∏∫coback functionÔºåÁ¨¨‰∏â‰∏™‰∏∫boolean
                     api:frameGroup.markFunction(function(a){
                         var param = S.makeArray(arguments);
                         if(param.length>3){
@@ -78,9 +82,14 @@ KISSY.add(function (S) {
                         var param = S.makeArray(arguments);
                         if(param[0] == "authbtn"){
                             param[1] = cajaAFTB.untame(param[1]);
+                            //Â∞ÅË£Öcallback
                             var wrapper = genWrapper();
                             wrapper.handle = param[1].callback;
                             param[1].callback = wrapper;
+                            //Â∞ÅË£Öonload
+                             var wrapper1 = genWrapper();
+                            wrapper1.handle = param[1].onload;
+                            param[1].onload = wrapper1;
                         }
                         return TOP.ui(param[0],param[1]);
                     })
