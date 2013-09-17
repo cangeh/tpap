@@ -1,8 +1,8 @@
-var Tabs = KISSY.Tabs;//Tabs×é¼şÄ¬ÈÏÔÚKISSYµÄÃüÃû¿Õ¼äÏÂ
+ï»¿var Tabs = KISSY.Tabs;//Tabsç»„ä»¶é»˜è®¤åœ¨KISSYçš„å‘½åç©ºé—´ä¸‹
 var tabs = new Tabs({ srcNode: KISSY.DOM.get('.ks-tabs') }); 
 tabs.render();
 
-//²âÊÔÌí¼Óitem
+//æµ‹è¯•æ·»åŠ item
 function addItem() {
     tabs.addItem({ title: 'title_addItem111', content: '<div>content_addItem111</div>' });
     tabs.addItem({ title: 'title_addItem222', content: '<div>content_addItem222</div>' });
@@ -12,54 +12,54 @@ function addItem() {
     tabs.addItem({ title: 'title_addItem555', content: '<div>content_addItem555</div>' });
 }
 
-//²âÊÔitem
+//æµ‹è¯•item
 function removeItemAt() {
     tabs.removeItemAt(1, true);
 }
 
-//²âÊÔremoveItemByTab
+//æµ‹è¯•removeItemByTab
 function removeItemByTab() {
     tabs.removeItemByTab(tabs.getTabs()[3], true);
 }
 
-//²âÊÔremoveItemByPanel
+//æµ‹è¯•removeItemByPanel
 function removeItemByPanel() {
     tabs.removeItemByPanel(tabs.getPanels()[2], true);
 }
 
-//²âÊÔgetSelectedTab
+//æµ‹è¯•getSelectedTab
 function getSelectedTab() {
     tabs.removeItemByTab(tabs.getSelectedTab(), true);
     //KISSY.alert('getSelectedTab:' + tabs.getSelectedTab());
 }
 
-//²âÊÔgetSelectedPanel
+//æµ‹è¯•getSelectedPanel
 function getSelectedPanel() {
     tabs.removeItemByPanel(tabs.getSelectedPanel(), true);
     //KISSY.alert('getSelectedPanel:' + tabs.getSelectedPanel());
 }
 
-//²âÊÔgetTabs
+//æµ‹è¯•getTabs
 function getTabs() {
     KISSY.alert('getTabs:' + tabs.getTabs().length);
 }
 
-//²âÊÔgetPanels
+//æµ‹è¯•getPanels
 function getPanels() {
     KISSY.alert('getPanels:' + tabs.getPanels().length);
 }
 
-//²âÊÔsetSelectedTab
+//æµ‹è¯•setSelectedTab
 function setSelectedTab() {
     tabs.setSelectedTab(tabs.getTabs()[3]);
 }
 
-//²âÊÔsetSelectedPanel
+//æµ‹è¯•setSelectedPanel
 function setSelectedPanel() {
     tabs.setSelectedPanel(tabs.getPanels()[2]);
 }
 
-//¿ªÊ¼²âÊÔ
+//å¼€å§‹æµ‹è¯•
 function startTest() {
     addItem();
 //    removeItemAt();

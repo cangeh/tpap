@@ -1,16 +1,16 @@
-<!--Ò³Í·¹«¹²×ÊÔ´ÒıÈë-->
+ï»¿<!--é¡µå¤´å…¬å…±èµ„æºå¼•å…¥-->
 <? include("../common/head.php");?>
 
 <!--
-    ĞèÒª²âÊÔµÄdom½á¹¹£¬×¢Òâ£¬×îÍâ²ã<div class="J_TScriptedModule" data-componentid="uniqueSign"> µÄclassºÍÎªÊôĞÔ²»¿ÉĞŞ¸Ä
-    ÓÃ»§µÄjavascriptÀíÂÛÉÏÖ»¿ÉÒÔ×÷ÓÃµ½Õâ¸ödomÏÂÃæ£¬²»¿ÉÒÔ"Ô½½ç"
+    éœ€è¦æµ‹è¯•çš„domç»“æ„ï¼Œæ³¨æ„ï¼Œæœ€å¤–å±‚<div class="J_TScriptedModule" data-componentid="uniqueSign"> çš„classå’Œä¸ºå±æ€§ä¸å¯ä¿®æ”¹
+    ç”¨æˆ·çš„javascriptç†è®ºä¸Šåªå¯ä»¥ä½œç”¨åˆ°è¿™ä¸ªdomä¸‹é¢ï¼Œä¸å¯ä»¥"è¶Šç•Œ"
 -->
 <div class="J_TScriptedModule" data-componentid="uniqueSign">
     <input type="text" name="tabs1" class="tabs" />
 	<!--<script type="text/javascript" src="http://a.tbcdn.cn/s/kissy/1.3.0/tabs.js?t=20130621173819"></script>-->
 	<!--
-	KISSY Tabs Ö§³ÖËÄÖÖ¸ñÊ½£ºtop(default),left,bottom,left
-	Ö»Òª new Ê±ÅäÖÃÏÂ»òÕß markup ÖĞÖ¸¶¨²»Í¬µÄ class ¼´¿É¡£
+	KISSY Tabs æ”¯æŒå››ç§æ ¼å¼ï¼štop(default),left,bottom,left
+	åªè¦ new æ—¶é…ç½®ä¸‹æˆ–è€… markup ä¸­æŒ‡å®šä¸åŒçš„ class å³å¯ã€‚
 	-->
 	<div class="ks-tabs ks-tabs-top">
 		<div class="ks-tabs-bar">
@@ -33,16 +33,16 @@
 	
 </div>
 
-<!--Ä£¿é³õÊ¼»¯µÄ°üÅäÖÃ£¬¶¼ºÜÊìÏ¤ÁË-->
+<!--æ¨¡å—åˆå§‹åŒ–çš„åŒ…é…ç½®ï¼Œéƒ½å¾ˆç†Ÿæ‚‰äº†-->
 <script type="text/javascript">
 
-     cajaConfig={//ÅäÖÃÏÂÄãĞèÒªÒıÈëµÄÄ£¿éÃû³Æ£¬×îºó»á±»useµ½
+     cajaConfig={//é…ç½®ä¸‹ä½ éœ€è¦å¼•å…¥çš„æ¨¡å—åç§°ï¼Œæœ€åä¼šè¢«useåˆ°
          modules:"openjs/kissy/1.3.0/core,openjs/kissy/1.3.0/tabs"
      }
 
 </script>
 
-<!--²âÊÔ´úÂë-->
+<!--æµ‹è¯•ä»£ç -->
 <script type="text/javascript">
 
 //(new KISSY.Tabs({srcNode: KISSY.one(".ks-tabs")})).render();
@@ -54,9 +54,9 @@ KISSY.use('tabs',function(S,Tabs){
 */
 </script>
 
-<!--ÕâÀïÊÇ½«×Ô¼ºµÄjsÈÃ·şÎñ¶Ë±àÒëÒ»ÏÂ£¬ÅäÖÃÏÂ·şÎñ¶ËµÄphpÂ·¾¶ºÍ×Ô¼ºµÄjs¼´¿É£¬×¢ÒâÂ·¾¶-->
+<!--è¿™é‡Œæ˜¯å°†è‡ªå·±çš„jsè®©æœåŠ¡ç«¯ç¼–è¯‘ä¸€ä¸‹ï¼Œé…ç½®ä¸‹æœåŠ¡ç«¯çš„phpè·¯å¾„å’Œè‡ªå·±çš„jså³å¯ï¼Œæ³¨æ„è·¯å¾„-->
 <?
-    $jsurl="testcase/1.3.0/tabs.js";//×¢ÒâÂ·¾¶
-    $jsservice="../common/cajoled_service.php";//×¢ÒâÂ·¾¶
-    include("../common/foot.php");//ÒıÈëfoot
+    $jsurl="testcase/1.3.0/tabs.js";//æ³¨æ„è·¯å¾„
+    $jsservice="../common/cajoled_service.php";//æ³¨æ„è·¯å¾„
+    include("../common/foot.php");//å¼•å…¥foot
 ?>
